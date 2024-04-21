@@ -1,5 +1,3 @@
 <?php
 
-$connecton = new PDO("mysql:host=localhost;dbname=test","root", "");  
-
-?>
+$connection = new PDO("mysql:host=localhost;dbname=test","root","");
