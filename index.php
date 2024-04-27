@@ -3,10 +3,10 @@
 include ('./includes/init.php');
 
 $query = "SELECT * FROM user";
-$statement=$connection->prepare($query);
+$statement = $connection->prepare($query);
 $statement->execute();
 
-$data=$statement->fetchALL(PDO::FETCH_ASSOC);
+$data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 $index=0;
 ?>
@@ -40,6 +40,7 @@ $index=0;
             <th>password</th>
             <th>E-mail</th>
             <th>number</th>
+            <th colspan="2">operations</th>
         </tr>
     </thead>
     <tbody>
@@ -50,6 +51,8 @@ $index=0;
                 <td><?= $user['password'] ?></td>
                 <td><?= $user['email'] ?></td>
                 <td><?= $user['number'] ?></td>
+                <td><button><a href="api/delete.php?deleteid=<?= $user['id'] ?>">Delete</a></button></td>
+                <td><button><a href="pages/updatepage.php?updateid=<?= $user['id'] ?>">Update</a></button></td>
             </tr>
         <?php } ?>
     </tbody>
